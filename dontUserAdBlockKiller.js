@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Don't Use AdBlock - Killer
 // @namespace   MegaByteGreaseMonkeyDUABK
-// @description Removes the "Dont use Ad Blocker" Messages on some sites.
+// @description Removes the "Dont use Ad Blocker" Messages on some sites. Updated by WBD to include Windows Central and CNN.
 // @include     http*://*tempostorm.com/*
 // @include     http*://*agar.io/*
 // @include     http*://*chip.de/*
@@ -21,7 +21,7 @@
 // @include     http*://*mobilesringtones.com/*
 // @include     http*://*windowscentral.com/*
 // @include     http*://*cnn.com/*
-// @version     3.5.1.2
+// @version     3.5.1.3
 // @grant    	GM_addStyle
 // ==/UserScript==
 
@@ -57,14 +57,14 @@
 	var site = window.location.href || document.URL;
 	var remove;
 
-	for(var url in data) {
+	for (var url in data) {
 		if(site.includes(url)) {
 			remove = data[url];
 			break;
 		}
 	}
 
-	if(typeof remove !== "undefined") {
+	if (typeof remove !== "undefined") {
 		GM_addStyle(
 			remove + " {" +
 				"display: none !important;" +
