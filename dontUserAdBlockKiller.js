@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Don't Use AdBlock - Killer
 // @namespace   MegaByteGreaseMonkeyDUABK
-// @description Removes the "Dont use Ad Blocker" Messages on some sites. Updated by WBD to include Windows Central and CNN.
+// @description Removes the "Dont use Ad Blocker" Messages on some sites.
 // @include     http*://*tempostorm.com/*
 // @include     http*://*agar.io/*
 // @include     http*://*chip.de/*
@@ -21,7 +21,7 @@
 // @include     http*://*mobilesringtones.com/*
 // @include     http*://*windowscentral.com/*
 // @include     http*://*cnn.com/*
-// @version     3.5.1.3
+// @version     3.5.1
 // @grant    	GM_addStyle
 // ==/UserScript==
 
@@ -49,9 +49,7 @@
 		"minecraft-forum.net"	: ".download-panel #ImageAndButton",
 		"gottabemobile.com"	    : "center i",
 		"prosiebenmaxx.at"	    : "#main > div:first-child, [id*=ad-performance], .ad, #main > div:nth-of-type(6)",
-		"mobilesringtones.com"  : ".site-usage-warning",
-        "windowscentral.com"    : ".swal-overlay--show-modal",
-        "cnn.com"               : ".bx-slab, bx-shroud" //remove annoying popover, not ad
+		"mobilesringtones.com"  : ".site-usage-warning"
 	};
 
 	var site = window.location.href || document.URL;
