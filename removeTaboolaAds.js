@@ -1,8 +1,10 @@
 // ==UserScript==
 // @name         Remove Taboola Ads
 // @namespace    http://tampermonkey.net/
-// @version      0.2
+// @version      0.2.1
 // @description  Remove Taboola Ads from sites.
+// @updateURL    https://raw.githubusercontent.com/wdupree/tampermonkeyScripts/master/removeTaboolaAds.js?token=ABNSKDIZHWTUIS4DD3YFNSK4ZM5YY
+// @downloadURL  https://raw.githubusercontent.com/wdupree/tampermonkeyScripts/master/removeTaboolaAds.js?token=ABNSKDIZHWTUIS4DD3YFNSK4ZM5YY
 // @author       Wayne Dupree
 // @match        http*://*/*
 // @grant    	 GM_addStyle

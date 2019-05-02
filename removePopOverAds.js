@@ -1,8 +1,10 @@
 // ==UserScript==
 // @name         Remove Pop Over Ads
 // @namespace    http://tampermonkey.net/
-// @version      0.2
+// @version      0.2.1
 // @description  Remove add popovers from ComingSoon.net CNN, NBC & Windows Central.
+// @updateURL    https://raw.githubusercontent.com/wdupree/tampermonkeyScripts/master/removePopOverAds.js?token=ABNSKDJX6OUBRYBXJWKIUQK4ZM5SC
+// @downloadURL  https://raw.githubusercontent.com/wdupree/tampermonkeyScripts/master/removePopOverAds.js?token=ABNSKDJX6OUBRYBXJWKIUQK4ZM5SC
 // @author       Wayne Dupree
 // @require      http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js
 // @require      https://gist.github.com/raw/2625891/waitForKeyElements.js
