@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Hyperlink Auditing Remover
 // @namespace    http://tampermonkey.net/
-// @version      0.2
+// @version      0.3
 // @description  Removes the "ping" attribute from links.
 // @author       Wayne Dupree
 // @match        http*://*/*
@@ -15,6 +15,6 @@
     links.forEach(function(link){
         link.outerHTML += '<sup>p</sup>';
         link.removeAttribute("ping");
-        console.info("Hyperlink Auditing Remover was active [Identification: " + link + "].");
+        console.info("Hyperlink Auditing Remover edited link [Identification: " + link + "].");
     });
 })();

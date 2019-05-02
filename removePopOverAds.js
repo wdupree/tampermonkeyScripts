@@ -1,10 +1,12 @@
 // ==UserScript==
 // @name         Remove Pop Over Ads
 // @namespace    http://tampermonkey.net/
-// @version      0.1
-// @description  Remove add popovers from CNN, NBC & Windows Central.
+// @version      0.2
+// @description  Remove add popovers from ComingSoon.net CNN, NBC & Windows Central.
 // @author       Wayne Dupree
-// @grant        none
+// @require      http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js
+// @require      https://gist.github.com/raw/2625891/waitForKeyElements.js
+// @match        *://www.comingsoon.net/*
 // @match        *://www.cnn.com/*
 // @match        *://www.nbcnews.com/*
 // @match        *://www.windowscentral.com/*
@@ -13,22 +15,22 @@
 (function() {
     'use strict';
 
-    var cnnAdElements = document.querySelectorAll('div.bx-shroud, div.bx-slab');
-    cnnAdElements.forEach(function(cnnAdElement){
-        var parentHtmlNode = cnnAdElement.parentNode;
-        parentHtmlNode.parentNode.removeChild(parentHtmlNode);
-        console.info("Remove Pop Over Ads was active on CNN [Identification: " + parentHtmlNode.id + "].");
-    });
+    var cssPopOverSelectors = 'div.bx-slab,' + // CNN
+                              'div[style*="background-color: rgba(0, 0, 0, 0"],' + // NBC News, Coming Soon
+                              'div.swal-overlay'; // Windows Central
 
-    var wcAdElements = document.querySelectorAll('div.swal-overlay');
-    wcAdElements.forEach(function(wsAdElement){
-        wsAdElement.parentNode.removeChild(wsAdElement);
-        console.info("Remove Pop Over Ads was active on Windows Central [Identification: " + wsAdElement + "].");
-    });
+    waitForKeyElements (cssPopOverSelectors, elementFoundCallbackFunction);
 
-    var nbcAdElements = document.querySelectorAll('div[style=background-color: rgba(0, 0, 0, 0.6)]');
-    nbcAdElements.forEach(function(nbcAdElement){
-        nbcAdElement.parentNode.removeChild(nbcAdElement);
-        console.info("Remove Pop Over Ads was active on NBC [Identification: " + nbcAdElement + "].");
-    });
+    function elementFoundCallbackFunction ($htmlElements) {
+           $htmlElements.each(function(index, element){
+               var parentHtmlNode = element.parentNode;
+               if (parentHtmlNode.localName == 'body'){
+                   element.parentNode.removeChild(element);
+                   console.info('Remove Pop Over Ads removed element [Identification: ' + element.localName + '.' + element.className + "].");
+               } else {
+                   parentHtmlNode.parentNode.removeChild(parentHtmlNode);
+                   console.info('Remove Pop Over Ads removed element [Identification: ' + parentHtmlNode.localName + '.' + parentHtmlNode.className + "].");
+               }
+           });
+    }
 })();

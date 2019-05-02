@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Remove Taboola Ads
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.2
 // @description  Remove Taboola Ads from sites.
 // @author       Wayne Dupree
 // @match        http*://*/*
@@ -27,7 +27,7 @@
 				"height: 0px !important;" +
                 "}"
             );
-            console.info("Remove Taboola Ads was active [Identification: " + taboolaClass + "].");
+            console.info("Remove Taboola Ads hid element [Identification: " + taboolaClass + "].");
         });
     });
 })();
