@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Remove Pop Over Ads
 // @namespace    http://tampermonkey.net/
-// @version      0.2.1
+// @version      0.2.2
 // @description  Remove add popovers from ComingSoon.net CNN, NBC & Windows Central.
 // @updateURL    https://raw.githubusercontent.com/wdupree/tampermonkeyScripts/master/removePopOverAds.js?token=ABNSKDJX6OUBRYBXJWKIUQK4ZM5SC
 // @downloadURL  https://raw.githubusercontent.com/wdupree/tampermonkeyScripts/master/removePopOverAds.js?token=ABNSKDJX6OUBRYBXJWKIUQK4ZM5SC
@@ -26,13 +26,19 @@
     function elementFoundCallbackFunction ($htmlElements) {
            $htmlElements.each(function(index, element){
                var parentHtmlNode = element.parentNode;
+               var tagName;
                if (parentHtmlNode.localName == 'body'){
                    element.parentNode.removeChild(element);
-                   console.info('Remove Pop Over Ads removed element [Identification: ' + element.localName + '.' + element.className + "].");
+                   tagName = element.localName +
+                       ((element.id) ? '#' + element.id : '') +
+                       ((element.className) ? '.' + element.className : '');
                } else {
                    parentHtmlNode.parentNode.removeChild(parentHtmlNode);
-                   console.info('Remove Pop Over Ads removed element [Identification: ' + parentHtmlNode.localName + '.' + parentHtmlNode.className + "].");
+                   tagName = parentHtmlNode.localName +
+                       ((parentHtmlNode.id) ? '#' + parentHtmlNode.id : '') +
+                       ((parentHtmlNode.className) ? '.' + parentHtmlNode.className : '');
                }
+               console.info(`Remove Pop Over Ads removed element [Identification: ${tagName}].`);
            });
     }
 })();
