@@ -1,7 +1,8 @@
 {
     "folders": [
         {
-            "path": "."
+            "name": "tampermonkeyScripts",
+            "path": "C:\\PersonalTFS\\tampermonkeyScripts"
         },
         {
             "name": "stylusScripts",
