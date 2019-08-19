@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Remove Taboola Ads
 // @namespace    http://tampermonkey.net/
-// @version      0.3.0
+// @version      0.3.1
 // @description  Remove Taboola Ads from sites.
 // @updateURL    https://raw.githubusercontent.com/wdupree/tampermonkeyScripts/master/removeTaboolaAds.js
 // @downloadURL  https://raw.githubusercontent.com/wdupree/tampermonkeyScripts/master/removeTaboolaAds.js
@@ -16,9 +16,9 @@
     'use strict';
 
     var taboolaClasses = [
-        "[id*='taboola']",
-        "div[class*='taboola']",
-        "p[class*='taboola']",
+        "[id*='taboola']","[id*='Taboola']",
+        "div[class*='taboola']","div[class*='Taboola']",
+        "p[class*='taboola']","p[class*='Taboola']",
         "[class*='js_reading-list reading-list']",
         "[class*='related-articles-block']"
 	];
